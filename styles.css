@@ -1,0 +1,639 @@
+/* ================================
+   MOANA ORA — thème lagon (refactor)
+   ================================ */
+
+:root {
+  --deep-blue: #13658a;
+  --lagoon-blue: #1ea3b3;
+  --turquoise: #7fe1dd;
+  --sand: #ffd65b;
+  --foam: #f3fafb;
+  --text: #0a1b22;
+  --text-inv: #ffffff;
+
+  --maxw: 1200px;
+  --aside-w: 12vw;
+  --pill-overlap: 260px;
+  --radius-xl: 9999px;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+  --appbar-h: 64px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  --aside-padding-top: 11vh;
+  --logo-size-desktop: 150px;
+  --brand-size: clamp(5rem, 12vw, 18rem);
+}
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* BASE */
+html,
+body {
+  height: 100%;
+  background: #0b3a53;
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  line-height: 1.5;
+  background: var(--foam);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: var(--aside-w) 1fr;
+  min-height: 100vh;
+}
+.main {
+  position: relative;
+  overflow: visible;
+}
+
+/* ASIDE */
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--aside-padding-top);
+  background: var(--deep-blue);
+  position: relative;
+  overflow: visible; /* évite toute coupure d'overflow */
+}
+.side__top img {
+  border-radius: 50%;
+  max-width: var(--logo-size-desktop);
+  height: auto;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease;
+}
+
+/* -------- WRAP bouton + dropdown -------- */
+.menu-wrap {
+  position: relative;
+  align-self: flex-end;
+  margin: 12px 16px 0 auto;
+  z-index: 1200;
+}
+
+.side__actions {
+  position: absolute;
+  bottom: 10vh;
+  left: 40px;
+  right: calc(-1 * var(--pill-overlap));
+  z-index: 10;
+}
+
+/* NAV PILLS */
+.pill-nav {
+  list-style: none;
+  display: grid;
+  gap: 22px;
+}
+.pill {
+  display: inline-block;
+  padding: 16px 24px;
+  border-radius: var(--radius-xl);
+  font-weight: 700 !important;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  width: 210px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+.pill--team {
+  background: var(--turquoise);
+  color: var(--deep-blue);
+}
+.pill--missions {
+  background: #0a6778 !important;
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+.pill--actions {
+  background: #f4b400 !important;
+  color: #103a44 !important;
+  font-weight: 700 !important;
+  text-shadow: none;
+}
+.pill:hover,
+.pill:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
+  outline: none;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: end;
+  min-height: 100vh;
+  overflow: clip;
+  background-color: #0b3a53;
+}
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 58, 83, 0.24);
+  z-index: 1;
+}
+
+/* HEADLINE */
+.hero__headline {
+  position: relative;
+  z-index: 2;
+  justify-self: end;
+  text-align: right;
+  color: var(--text-inv);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  margin: 4vh 6% 2vh;
+}
+
+/* TITRE principal */
+.site-title .brand {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: var(--brand-size);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+/* TAGLINE */
+.tagline {
+  display: block;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.1rem;
+  line-height: 1.15;
+}
+
+/* BIENVENUE */
+.hero__welcome {
+  font-weight: 900;
+  font-size: clamp(1.6rem, 7vw, 4rem);
+  color: var(--sand);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  margin-top: 2rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* BOTTOM PANEL */
+.bottom-panel {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+}
+.bottom-panel__content {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 55, 68, 0.4) 0%,
+    rgba(8, 55, 68, 0.66) 35%,
+    rgba(8, 55, 68, 0.78) 100%
+  ) !important;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 -2px 18px rgba(0, 0, 0, 0.22);
+  color: #fff !important;
+  padding-top: 12px !important;
+  padding-bottom: 5px !important;
+  padding-left: clamp(12px, 2vw, 20px);
+  padding-right: clamp(12px, 2vw, 20px);
+  font-size: 1.1rem;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+.bottom-panel__content p {
+  margin-bottom: 1rem;
+  max-width: 90% !important;
+  margin-inline: auto;
+  text-align: left;
+}
+.bottom-panel__content p:last-child {
+  margin-bottom: 0;
+}
+.bottom-panel__content strong {
+  font-weight: 700;
+}
+.bottom-panel__content a {
+  color: #ffdc6e !important;
+  font-weight: 600 !important;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+.bottom-panel__content a:hover {
+  text-decoration: underline;
+}
+
+/* Annonce */
+.announcement-text {
+  text-align: center;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 700;
+  color: var(--foam);
+  margin: 0 auto 1.2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1.4;
+  max-width: 100%;
+}
+.announcement-text span {
+  white-space: nowrap;
+  font-weight: 800;
+  color: #ffd65b;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+.bottom-panel__content .footer-note {
+  font-size: 0.75rem;
+  color: var(--foam);
+  opacity: 0.7;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* -------- BOUTON MENU + LANGUE -------- */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 0;
+  background: var(--deep-blue);
+  color: var(--text-inv);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+.nav-toggle__label {
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 2px;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  background: #ffffff1a;
+  color: var(--text-inv);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  filter: brightness(1.1);
+  outline: 2px solid var(--sand);
+  outline-offset: 2px;
+}
+
+/* DROPDOWN COMPACT */
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: rgba(11, 58, 83, 0.96);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 4px 0;
+  width: max-content;
+  min-width: 160px;
+  max-width: 90vw;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 1300;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.mobile-menu__link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.55rem 0.9rem;
+  color: var(--foam);
+  font-weight: 700;
+}
+.mobile-menu__link + .mobile-menu__link {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mobile-menu__link:hover,
+.mobile-menu__link:focus-visible {
+  background: rgba(30, 163, 179, 0.22);
+  outline: none;
+}
+
+/* ACCESSIBILITÉ FOCUS */
+a:focus-visible,
+.pill:focus-visible {
+  outline: 3px solid var(--sand);
+  outline-offset: 3px;
+}
+
+/* ALIGNEMENT “MOANA ORA” / logo sur desktop */
+@media (min-width: 1201px) {
+  .hero__headline {
+    position: absolute;
+    right: 6%;
+    margin: 0;
+    top: calc(
+      var(--aside-padding-top) + (var(--logo-size-desktop) / 2) -
+        (var(--brand-size) / 2)
+    );
+    transform: none;
+    text-align: right;
+    z-index: 2;
+  }
+}
+
+/* RESPONSIVE: tablette + mobile */
+@media (max-width: 1200px) {
+  .layout {
+    display: block;
+  }
+
+  .side {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: calc(var(--appbar-h) + var(--safe-top));
+    z-index: 2000;
+    padding: max(8px, var(--safe-top)) 12px 8px 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--deep-blue);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  }
+
+  .side__top img {
+    max-width: 44px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .pill-nav {
+    display: none !important;
+  }
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .menu-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0 12px 0 0;
+    position: static;
+    z-index: 2100;
+  }
+
+  /* --- Fix: iOS tap highlight flash on toggle buttons (2025-11-08) --- */
+  .nav-toggle,
+  .lang-toggle {
+    -webkit-tap-highlight-color: transparent; /* supprime le halo carré iOS/Android */
+    -webkit-appearance: none;
+    appearance: none;
+    overflow: hidden; /* clippe tout éventuel halo */
+    background-clip: padding-box; /* évite les artefacts sur bords arrondis */
+  }
+
+  .nav-toggle:active,
+  .lang-toggle:active {
+    filter: brightness(1.08); /* état press custom, très discret */
+  }
+
+  .lang-toggle svg {
+    display: block;
+    width: 24px;
+    height: auto;
+  }
+  /* --- End fix --- */
+
+  .hero {
+    min-height: calc(100dvh - var(--appbar-h) - var(--safe-top));
+    margin-top: calc(var(--appbar-h) + var(--safe-top));
+  }
+
+  /* Menu mobile en fixed sous la barre */
+  .mobile-menu {
+    position: fixed;
+    top: calc(var(--appbar-h) + var(--safe-top) + 6px);
+    right: 12px;
+    left: auto;
+    z-index: 2200;
+    /* Harmonisation couleur du menu mobile */
+    background: #007d9e !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+  }
+  .mobile-menu a {
+    color: #ffffff !important;
+  }
+  .mobile-menu a:hover,
+  .mobile-menu a:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+  }
+}
+
+/* Petits écrans */
+@media (max-width: 768px) {
+  .site-title .brand {
+    font-size: clamp(2.6rem, 12vw, 5.6rem);
+  }
+  .tagline {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  }
+  .hero__welcome {
+    font-size: clamp(1.2rem, 7vw, 2.1rem);
+  }
+}
+
+/* Écrans peu hauts */
+@media (max-height: 620px) {
+  .site-title .brand {
+    font-size: clamp(2.4rem, 10vw, 4.8rem);
+  }
+  .hero__welcome {
+    font-size: clamp(1.1rem, 6.5vw, 1.8rem);
+  }
+}
+
+/* Logo responsive spécifique (préserve ton visuel existant) */
+@media (max-width: 992px) {
+  header,
+  .hero,
+  .layout {
+    position: relative;
+  }
+  .logo {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    width: 88px;
+    height: auto;
+    z-index: 10;
+  }
+}
+@media (min-width: 993px) {
+  .logo {
+    position: static;
+    width: var(--logo-size-desktop);
+    height: auto;
+  }
+}
+
+.coming-soon {
+  position: fixed;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%) translateY(-10px);
+  background: var(--lagoon-blue);
+  color: var(--foam);
+  padding: 6px 14px; /* un peu moins haut et moins large */
+  border-radius: 999px;
+  font-size: 0.9rem; /* texte légèrement plus fin */
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap; /* empêche le retour à la ligne */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.coming-soon.is-open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* On garde aussi la variante .visible si jamais utilisée ailleurs */
+.coming-soon.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* État visuel “temp-disabled” (inchangé) */
+.pill-nav a.temp-disabled {
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.12);
+  color: #103a44 !important;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: default;
+  pointer-events: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.pill-nav a.temp-disabled:hover,
+.pill-nav a.temp-disabled:focus {
+  border-color: #e74c3c !important;
+  color: #103a44 !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.12);
+}
+
+/* SÛRETÉ : [hidden] masque réellement */
+.mobile-menu[hidden] {
+  display: none !important;
+}
+
+/* --- Ajustements pour petits laptops 1366x768 --- */
+@media (max-width: 1400px) and (min-width: 1201px) {
+  /* On réduit légèrement le gros titre MOANA ORA */
+  :root {
+    --brand-size: clamp(4.8rem, 11vw, 13rem);
+  }
+
+  /* Bottom panel : texte plus compact */
+  .bottom-panel__content {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-top: 8px;
+    padding-bottom: 4px;
+  }
+
+  .bottom-panel__content p {
+    max-width: 85%;
+  }
+
+  .announcement-text {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+
+  /* Aside : boutons plus petits */
+  .pill {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    width: 180px;
+  }
+
+  /* Tagline (slogan sous le titre) un peu réduite aussi */
+  .tagline {
+    font-size: clamp(0.9rem, 1.6vw, 1.4rem);
+  }
+}

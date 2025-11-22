@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOANA ORA – Ocean Research Alliance</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="./images/logo.jpg" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <aside class="side">
+        <div class="side__top">
+          <img src="./images/logo.jpg" alt="Logo MOANA ORA" class="logo" />
+        </div>
+
+        <!-- WRAP bouton + dropdown + toggle langue -->
+        <div class="menu-wrap">
+          <!-- BOUTON MENU (TABLETTE/MOBILE) -->
+          <button
+            class="nav-toggle"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu"
+            data-i18n-aria="aria.openMenu"
+          >
+            <span class="nav-toggle__label" data-i18n="nav.menu">Menu</span>
+          </button>
+
+          <!-- BOUTON LANGUE -->
+          <button
+            class="lang-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Basculer la langue"
+            data-i18n-aria="aria.toggleLang"
+          >
+            FR
+          </button>
+
+          <!-- MENU DÉROULANT MOBILE/TABLETTE -->
+          <div id="mobile-menu" class="mobile-menu" hidden aria-hidden="true">
+            <a href="#equipe" class="mobile-menu__link" data-i18n="mobile.team"
+              >Notre équipe</a
+            >
+            <a
+              href="#missions"
+              class="mobile-menu__link"
+              data-i18n="mobile.missions"
+              >Nos missions</a
+            >
+            <a
+              href="#actions"
+              class="mobile-menu__link"
+              data-i18n="mobile.actions"
+              >Nos actions</a
+            >
+          </div>
+        </div>
+
+        <!-- NAV DESKTOP (pills) -->
+        <nav class="side__actions" aria-label="Navigation principale">
+          <ul class="pill-nav">
+            <li>
+              <a class="pill pill--team" href="#equipe" data-i18n="pill.team"
+                >Notre équipe</a
+              >
+            </li>
+            <li>
+              <a
+                class="pill pill--missions"
+                href="#missions"
+                data-i18n="pill.missions"
+                >Nos missions</a
+              >
+            </li>
+            <li>
+              <a
+                class="pill pill--actions"
+                href="#actions"
+                data-i18n="pill.actions"
+                >Nos actions</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main id="contenu" class="main" tabindex="-1">
+        <div class="hero">
+          <img src="./images/TobyMatthews.jpg" alt="aerial view of lagoon" class="hero__img" />
+          <div class="hero__scrim" aria-hidden="true"></div>
+
+          <div class="hero__headline">
+            <h1 class="site-title"><span class="brand">MOANA ORA</span></h1>
+            <div class="hero__subblock">
+              <h2 class="tagline">OCEAN RESEARCH ALLIANCE</h2>
+              <p class="hero__welcome" data-i18n="hero.welcome">Bienvenue</p>
+            </div>
+          </div>
+
+          <section class="bottom-panel" aria-label="Présentation">
+            <div class="bottom-panel__content">
+              <p class="announcement-text" data-i18n="announcement.html">
+                Retrouvez-nous à partir du mois de&nbsp;<span
+                  >mars 2026&nbsp;!</span
+                >
+              </p>
+
+              <p data-i18n="p1.html">
+                <strong>MOANA ORA</strong>, <strong>O</strong>cean
+                <strong>R</strong>esearch <strong>A</strong>lliance, est une
+                <strong>association loi 1901</strong>
+                à but non lucratif située à Haapiti, sur l’île de Moorea, en
+                Polynésie française.<br />
+                Née de la volonté d’approfondir et de renouveler la relation
+                entre l’humain et le vivant marin, elle a pour mission première
+                de veiller au bien-être de Hina et Kuokoa, deux grands dauphins
+                vivant dans une partie du lagon de Moorea depuis 1997.
+              </p>
+
+              <p data-i18n="p2.html">
+                <strong>MOANA ORA</strong> développera également des activités
+                éducatives, culturelles et scientifiques destinées à tous les
+                publics :<br />
+                Ateliers créatifs, parcours pédagogiques, expositions et
+                initiatives artistiques célébrant la mer et la vie océanique
+                sous toutes ses formes !
+              </p>
+
+              <p data-i18n="moreinfo.html">
+                Pour plus d’informations :
+                <a href="mailto:contact@moana-ora.org">contact@moana-ora.org</a>
+              </p>
+
+              <p class="footer-note" data-i18n="footer">
+                © 2025 Moana Ora – Tous droits réservés
+              </p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- MESSAGE TEMPORAIRE "Bientôt disponible" -->
+    <div id="coming-soon" class="coming-soon" hidden data-i18n="toast">
+      Bientôt disponible&nbsp;!
+    </div>
+  </body>
+</html>
