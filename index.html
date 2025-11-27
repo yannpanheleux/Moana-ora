@@ -4,6 +4,63 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MOANA ORA – Ocean Research Alliance</title>
+
+    <!-- DESCRIPTION : ce qui peut s’afficher sous le titre dans Google -->
+    <meta
+      name="description"
+      content="Moana Ora – Ocean Research Alliance est une association loi 1901 basée à Haapiti, sur l’île de Moorea en Polynésie française. Elle veille au bien-être des dauphins Hina et Kuokoa et développe des programmes éducatifs, culturels et scientifiques dédiés à l’océan."
+    />
+
+    <!-- Auteur / entité -->
+    <meta name="author" content="Moana Ora – Ocean Research Alliance" />
+
+    <!-- Indication pour les robots -->
+    <meta name="robots" content="index,follow" />
+
+    <!-- URL canonique -->
+    <link rel="canonical" href="https://moana-ora.org/" />
+
+    <!-- Open Graph (Facebook / LinkedIn / messageries) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Moana Ora – Ocean Research Alliance" />
+    <meta
+      property="og:description"
+      content="Association loi 1901 à Moorea dédiée au bien-être des dauphins Hina et Kuokoa et à des programmes d’éducation, de culture et de recherche sur l’océan."
+    />
+    <meta property="og:url" content="https://moana-ora.org/" />
+    <meta property="og:image" content="https://moana-ora.org/images/logo.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter (X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Moana Ora – Ocean Research Alliance" />
+    <meta
+      name="twitter:description"
+      content="Association basée à Haapiti, Moorea, dédiée au bien-être des dauphins et à la préservation des océans."
+    />
+    <meta
+      name="twitter:image"
+      content="https://moana-ora.org/images/logo.jpg"
+    />
+
+    <!-- Données structurées (JSON-LD) pour que Google comprenne qui vous êtes -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": "Moana Ora – Ocean Research Alliance",
+        "url": "https://moana-ora.org/",
+        "image": "https://moana-ora.org/images/logo.jpg",
+        "description": "Association loi 1901 basée à Haapiti, sur l’île de Moorea en Polynésie française, dédiée au bien-être des dauphins Hina et Kuokoa et à des programmes éducatifs, culturels et scientifiques sur l’océan.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Haapiti",
+          "addressRegion": "Moorea",
+          "addressCountry": "PF"
+        }
+      }
+    </script>
+
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
     <link rel="icon" type="image/png" href="./images/logo.jpg" />
@@ -90,7 +147,11 @@
 
       <main id="contenu" class="main" tabindex="-1">
         <div class="hero">
-          <img src="./images/TobyMatthews.jpg" alt="aerial view of lagoon" class="hero__img" />
+          <img
+            src="./images/TobyMatthews.jpg"
+            alt="aerial view of lagoon"
+            class="hero__img"
+          />
           <div class="hero__scrim" aria-hidden="true"></div>
 
           <div class="hero__headline">
